@@ -1,0 +1,54 @@
+{
+    "key" : "asdf",
+    "mapregister" :
+      {
+      "proxyMapReply" : true,
+      "eidToLocatorRecords" :
+        [
+          {
+          "authoritative" : true,
+          "prefixGeneric" :
+            {
+            "ipAddress" : "2.2.2.2",
+            "afi" : 1
+            },
+          "mapVersion" : 0,
+          "maskLength" : 32,
+          "action" : "NoAction",
+          "locators" :
+            [
+              {
+              "multicastPriority" : 1,
+              "locatorGeneric" :
+                {
+                "ipAddress" : "10.33.12.37",
+                "afi" : 1
+                },
+              "routed" : true,
+              "multicastWeight" : 0,
+              "rlocProbed" : false,
+              "localLocator" : false,
+              "priority" : 126,
+              "weight" : 1
+              } ,
+              {
+              "multicastPriority" : 1,
+              "locatorGeneric" :
+                {
+                "ipAddress" : "10.33.12.44",
+                "afi" : 1
+                },
+              "routed" : true,
+              "multicastWeight" : 0,
+              "rlocProbed" : false,
+              "localLocator" : false,
+              "priority" : 127,
+              "weight" : 1
+              }
+            ],
+          "recordTtl" : 5
+          }
+        ],
+      "keyId" : 0
+      }
+    }

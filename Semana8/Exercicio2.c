@@ -30,45 +30,49 @@ int main()
     free(x1);
     free(x2);
     return 0;
-    
 }
 
 int uniao(int *x1, int n1, int *x2, int n2)
 {
-    int n3,n = 0;
+    int n3, n = 0;
     int *x3;
-    for(int i = 0; i < n1; i++){
-        for(int j = 0; j < n2; j++){
-            if(x1[i] == x2[j]){
+    for (int i = 0; i < n1; i++)
+    {
+        for (int j = 0; j < n2; j++)
+        {
+            if (x1[i] == x2[j])
+            {
                 n += 1;
             }
         }
     }
-    
+
     x3 = malloc((n) * sizeof(int));
     int i, j = 0;
     printf("Interseccao de X1 e X2:\n");
     for (i = 0; i < n1; i++)
-    {   
-        if(x1[i] == x2[i]){
-        x3[j] = x1[i];
-        j++;
+    {
+        if (x1[i] == x2[i])
+        {
+            x3[j] = x1[i];
+            j++;
         }
     }
     for (i = 0; i < n2; i++)
     {
-        if(x1[i] == x2[i]){
-        x3[j] = x2[i];
-        j++;
+        if (x1[i] == x2[i])
+        {
+            x3[j] = x2[i];
+            j++;
         }
     }
     organiza(n, x3);
     n3 = repetidos(n, x3);
-     for (i = 0; i < n3; i++)
+    for (i = 0; i < n3; i++)
     {
-        printf("%d ", *(x3+i));
+        printf("%d ", *(x3 + i));
     }
-    
+
     free(x3);
 }
 
@@ -79,7 +83,7 @@ int repetidos(int n3, int *x1)
     {
         for (j = i + 1; j < n3; j++)
         {
-            if (x1[i] == x1[i+1])
+            if (x1[i] == x1[i + 1])
             {
                 for (k = j; k < n3; k++)
                 {

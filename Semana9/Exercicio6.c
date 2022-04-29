@@ -22,11 +22,6 @@ void numeros(char *str1, char *str2)
             printf("%d", n2[i]);
         }
     }
-    char *n3;
-    for (int i = 0; i < 51; i++){
-        n3[i] = n[i] + n2[i];
-    }
-    printf("%d", n3);
 }
 
 int main()

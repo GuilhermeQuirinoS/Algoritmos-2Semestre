@@ -1,3 +1,4 @@
+from re import I
 import numpy as np
 import math
 
@@ -6,42 +7,46 @@ import math
 # outputs = distancia percorrida (alcance)
 #             altura maxima
 #             duracao do lancamento
-
-while True:
-	try:
-		iV0 = int(input("Digite a velocidade (em m/s):"))
-		
+def recebe():
+	while True:
 		if iV0 <= 0:
-			raise ValueError
-			
-		iAngulo = int(input("Digite o ângulo de lançamento (em graus):"))
-		
-		if iAngulo < 0 or iAngulo > 90:
-			raise ValueError
+			print("Valor Invalido")
 
-		break
-	except ValueError:
-		print("Valor inválido! Favor informar somente valores positivos para a velocidade e ângulos entre 0 e 90 graus")
+		elif iAngulo < 0 or iAngulo > 90:
+			print("Valor Invalido")
+
+		elif iTempod < 0:
+			print("Valor Invalido")
+
+		elif iY0 < 0:
+			print("Valor Invalido")
+			break
+
+
+recebe()
+
+iV0 = int(input("Digite a velocidade (em m/s):"))
+iY0 = int(input("Digite a altura inicial(em metros)"))
+iTempod = int(input("Digite o instante de tempo determinado(em segundos):"))
+iAngulo = int(input("Digite o ângulo de lançamento (em graus):"))
+
 
 angRAd = np.deg2rad(iAngulo)
 g = 9.8
-#X final
+# X final
 alcanceMax = (((iV0**2) * np.sin(2*angRAd)) / g)
-#h max
+# h max
 alturaMax = ((iV0**2) * (np.sin(angRAd)**2) / (2*g))
-#t até hmax
+# t até hmax
 tempoSubida = (((iV0 * np.sin(angRAd)) / g))
-#t total
+# t total
 tempoAR = 2*((iV0 * np.sin(angRAd)) / g)
 
 t = np.arange(0, tempoAR, 0.1)
 
-#todas as posições x e y menos quando y = 0
+# todas as posições x e y menos quando y = 0
 x = abs(iV0) * np.cos(angRAd) * t
 y = (abs(iV0) * np.sin(angRAd) * t) - ((g*(t**2))/2)
-
-
-
 
 
 print("\n\n\n***********")

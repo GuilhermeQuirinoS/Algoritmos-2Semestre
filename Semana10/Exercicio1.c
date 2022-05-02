@@ -1,19 +1,23 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-int main()
-{
-    double maior = 0;
-    int indice = 0;
-    FILE *fr;
-    fr = fopen("maioR.txt", "r");
-
-
+int main(){
+    FILE *fr = fopen("maiorR.txt","r");
     
-    printf("Maior: %.4f na posicao %d\n", maior, indice);
-    printf("Total de Elementos: %d", fscanf(fr);
-    fclose(fr);
-    return 0;
+    int i, ind=0;
+    float maior=0, num1;
+    int total = sizeof(float)*sizeof(fr);
+    
+    
+    for(i=0;i<sizeof(float)*sizeof(fr);i++){
+        fscanf(fr,"%f", &num1);
+        if(maior<num1){
+            maior=num1;
+            ind=i;
+        }
+    }
+
+    printf("Maior: %.4f na posicao %d\n", maior, ind + 1);
+    printf("Total de Elementos: %d\n", total);
 }

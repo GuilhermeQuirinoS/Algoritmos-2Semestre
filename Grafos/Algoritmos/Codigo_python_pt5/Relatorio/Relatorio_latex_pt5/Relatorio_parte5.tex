@@ -1,0 +1,124 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % Este pacote serve para acentuação
+\usepackage[brazil]{babel} % Este pacote coloca os nomes em pt-br
+\usepackage{indentfirst} % Este pacote aplica indentação
+\usepackage[a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry} % Este pacote altera a margem do documento
+\usepackage{graphicx} % Este pacote permite adicionar figuras
+\usepackage{float} % Força o posicionamento da figura
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{caption}
+%\usepackage{subfigure}
+
+\begin{document}
+\begin{titlepage}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.1\linewidth]{Figuras/logofei}
+		\label{fig:logofei}
+	\end{figure}
+	
+	\begin{center}
+		{\large \textbf{Centro Universitário FEI} }
+	\end{center}
+	
+	\vspace*{3cm}
+	
+	\begin{center}
+		{\Large {\bf{ Projeto de CA-2330 \\ 
+					\vspace*{0.5cm}{\large Relatório - Parte 5}}}}
+	\end{center}\vspace*{5cm}
+	
+	\begin{center}
+		Grupo Nº 11 \vspace*{0.2cm} \\ João Pedro Rosa Cezarino - R.A: 22.120.021-5  \\ Lucca Bonsi Guarreschi - R.A: 22.120.016-5  \\ Vitor Martins Oliveira - R.A: 22.120.067-8
+	\end{center}
+	
+	\vspace*{7cm}
+	\begin{center} \textbf{São Bernardo do Campo \\ 2020}\end{center}
+	
+\end{titlepage}
+	\newpage
+	\setcounter{page}{1} % Começa a contar as páginas novamente
+	\pagenumbering{arabic} % altera para algarismo arábico
+	
+	\section{{\Large \underline{Grafos e Trilhas de Euler}}}
+	Um grafo G é dito ser euleriano se há uma trilha em G que contenha todas as suas arestas. Esta trilha é dita ser uma trilha euleriana. O grafo da figura abaixo por exemplo, é euleriano já que ele contém a trilha: $(u1, u2, u3, u4, u5, u3, u1, u6, u2, u7, u3, u6, u7, u1)$, que é euleriana.\vspace*{0.2cm}
+		
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"Figuras/img1"}
+	\label{fig:img1}
+	\caption{}
+\end{figure}
+
+	Um Grafo conexo G é Euleriano se cada vértice de G possui grau par, ou seja, se o grafo é euleriano todos os vértices têm grau par, e além disto, se todos os vértices do grafo têm grau par então o grafo é euleriano.
+		
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{"Figuras/img2"}
+	\label{fig:img2}
+	\caption{}
+\end{figure}\vspace*{0.3cm}
+	Outra condição que provê uma solução simples para determinar se um grafo é euleriano é a de que um grafo M é euleriano se, e somente se, M é conexo.
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"Figuras/img3"}
+	\label{fig:img3}
+	\caption{}
+\end{figure}\vspace*{0.2cm}
+		
+		\section{{\Large \underline{Descrição do Programa}}}\vspace*{0.3cm}
+		
+		Inicialmente o arquivo onde se encontra a matriz de adjacência "A.txt" é aberto e a leitura de cada linha da matriz é realizada, com o objetivo de retirar os espaços ("$\backslash$n") e transformar o conteúdo em números inteiros (do tipo "int"). Após esse processo, o programa verifica e retira (se houver a presença) os espaços em branco desnecessários na matriz.\\
+		
+		Então, Transforma-se a lista extraída do arquivo que contém a matriz de adjacência em um array que pode ser interpretado pela biblioteca $Numpy$ e dessa forma podemos incorporar esta matriz aos módulos da biblioteca $NetworkX$.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\linewidth]{"Figuras/print1"}
+			\label{fig:print1}
+			\caption{}
+		\end{figure}\vspace*{0.2cm}
+
+ 		Logo após a execução anterior, utiliza-se a função \textit{is\_eulerian} da biblioteca $NetworkX$, que retorna $TRUE$ caso o grafo for Euleriano e $FALSE$ se não for. Portanto, se a função retornar $TRUE$ o grafo em questão é Euleriano, caso contrário, o grafo não é. A função \textit{has\_eulerian\_path} da biblioteca $NetworkX$ é responsável por retornar $TRUE$ caso o grafo possua um trilha de Euler e $FALSE$ se não possuir. Se o grafo possuir uma trilha Euleriana ela será impressa no terminal junto com as outras informações.
+ 		
+ 		\begin{figure}[H]
+ 			\centering
+ 			\includegraphics[width=0.7\linewidth]{"Figuras/print2"}
+ 			\label{fig:print2}
+ 			\caption{}
+ 		\end{figure}\vspace*{0.2cm}
+ 	
+ 		Por fim, obtém-se os resultados impressos no terminal e uma representação gráfica do grafo que foi submetido ao programa. É importante ressaltar que as linhas impressas na cor vermelha não se tratam de um erro e sim um aviso de um dos módulos utilizados no programa, quanto à imagem do grafo gerada. Tal aviso não interfere na imagem gerada e nos resultados finais do código.
+ 		
+ 		\begin{figure}[H]
+ 			\centering
+ 			\includegraphics[width=0.9\linewidth]{"Figuras/saida"}
+ 			\label{fig:saida}
+ 			\caption{}
+ 		\end{figure}\vspace*{0.2cm}
+ 		
+ 		\textbf{\underline{Atenção}}: Para o correto funcionamento do programa as bibliotecas \textit{Matplotlib}, \textit{NetworkX} e \textit{Numpy} devem estar instaladas no sistema. Para instalá-las, execute os comandos abaixo no terminal da sua IDE ou na linha de comando do sistema:
+ 		
+ 		\begin{center}
+ 			pip install Matplotlib\\
+ 			pip install NetworkX\\
+ 			pip install Numpy
+ 		\end{center}
+ 		
+ 		Também é importante lembrar que para instalar as bibliotecas acima, o instalador \textit{pip} deve estar instalado no sistema em que o programa será executado. Para instalá-lo, deve-se seguir o passo a passo da documentação que está presente no link abaixo: 
+ 		\begin{center}
+ 			\textit{https://pip.pypa.io/en/stable/installing/}
+ 		\end{center}\vspace*{0.2cm}
+ 	
+ 			A biblioteca \textbf{\textit{NetworkX}} é um pacote Python utilizado na criação, manipulação e estudo das estruturas, da dinâmica e das funções de redes complexas e de grafos.\\
+ 		
+ 		A biblioteca \textbf{\textit{Matplotlib}} tem a função de criar representações gráficas estáticas, animadas e interativas em Python.\\
+ 		
+ 		\textbf{\textit{NumPy}} é uma biblioteca para Python, que adiciona suporte para matrizes e arrays multidimensionais grandes, junto com uma grande coleção de funções matemáticas de alto nível para operar estes arrays.
+ 		
+\end{document}

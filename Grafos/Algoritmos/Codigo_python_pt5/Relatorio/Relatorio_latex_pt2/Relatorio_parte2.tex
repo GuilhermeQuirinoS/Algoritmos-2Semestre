@@ -1,0 +1,214 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % Este pacote serve para acentuação
+\usepackage[brazil]{babel} % Este pacote coloca os nomes em pt-br
+\usepackage{indentfirst} % Este pacote aplica indentação
+\usepackage[a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry} % Este pacote altera a margem do documento
+\usepackage{graphicx} % Este pacote permite adicionar figuras
+\usepackage{float} % Força o posicionamento da figura
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{subcaption}
+
+\begin{document}
+\begin{titlepage}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.1\linewidth]{Figuras/logofei}
+		\label{fig:logofei}
+	\end{figure}
+	
+	\begin{center}
+		{\large \textbf{Centro Universitário FEI} }
+	\end{center}
+	
+	\vspace*{3cm}
+	
+	\begin{center}
+		{\Large {\bf{ Projeto de CA-2330 \\ 
+					\vspace*{0.5cm}{\large Relatório - Parte 2}}}}
+	\end{center}\vspace*{5cm}
+	
+	\begin{center}
+		Grupo Nº 11 \vspace*{0.2cm} \\ João Pedro Rosa Cezarino - R.A: 22.120.021-5  \\ Lucca Bonsi Guarreschi - R.A: 22.120.016-5  \\ Vitor Martins Oliveira - R.A: 22.120.067-8
+	\end{center}
+	
+	\vspace*{7cm}
+	\begin{center} \textbf{São Bernardo do Campo \\ 2020}\end{center}
+	
+\end{titlepage}
+	\newpage
+	\setcounter{page}{1} % Começa a contar as páginas novamente
+	\pagenumbering{arabic} % altera para algarismo arábico
+	
+	\section{{\Large \underline{Graus de um grafo}}}
+		O grau de um vértice é dado pelo número de arestas que lhe são incidentes, com laços contados duas vezes.\vspace*{0.2cm}
+		
+		Em G, por exemplo:
+		
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"Figuras/graus1"}
+	\label{fig:graus1}
+	\caption{}
+\end{figure}
+		A Sequência de graus de um grafo consiste em escrever em ordem crescente ou decrescente os graus de seus vértices.
+		
+	\begin{figure}[H] 	
+		\centering
+		\includegraphics[width=0.3\linewidth]{"Figuras/graus2"}
+		\label{fig:graus2}
+		\caption{{\small Sequência de graus = 4, 3, 2, 2, 1, 0}}
+	\end{figure}
+	\vspace*{0.2cm}
+		A soma dos graus de todas as arestas de um grafo é duas vezes o número de arestas, já que cada aresta contribui para dois graus.
+		\begin{center}
+			\begin{equation*}
+				\sum_{i=1}^{n}{d(V_{i}) = 2a}
+			\end{equation*}
+		\end{center}\vspace*{0.5cm}
+	Um vértice que possui grau zero é um vértice isolado. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\linewidth]{"Figuras/grau3"}
+		\label{fig:grau3}
+		\caption{{\small $V1$ é um vértice isolado $grau(1) = 0$}}
+	\end{figure}
+		\newpage
+		Se o grafo não conter nenhuma aresta, então todos os vértices são isolados e o grafo é chamado grafo nulo.
+		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.2\linewidth]{"Figuras/grau4"}
+		\label{fig:grau4}
+		\caption{}
+	\end{figure}\vspace*{0.2cm}	
+
+	\section{{\Large \underline{Arestas de um grafo}}}
+		Uma aresta é um par não-ordenado (vi,vj), onde vi e vj são elementos de V.
+		
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{"Figuras/arestas1"}
+	\label{fig:arestas1}
+	\caption{{\small $E = {a1, a2, a3, a4, a5, a6, a7, a8}$}}
+\end{figure}
+	\vspace*{0.3cm}
+	\textbf{Arestas Adjacentes} são duas arestas com um extremo em comum.
+	
+	\textbf{Arestas Múltiplas} são arestas que possuem os mesmos extremos.
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{"Figuras/arestas2"}
+	\label{fig:arestas2}
+	\caption{}
+\end{figure}\vspace*{0.3cm}
+
+	\section{{\Large \underline{Grafos Completos}}}
+		\vspace*{0.3cm}
+		Um grafo completo com v vértices é um grafo simples onde todo par de vértices é ligado por uma aresta. Logo, um grafo completo é um grafo simples que contém o número máximo de arestas. Usualmente denota-se esse grafo por $Kn$, onde $n$ é a ordem do grafo.
+		\newpage
+		Um grafo Completo também é regular($n-1$), pois todos os seus vértices têm grau $n-1$.
+		
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"Figuras/completo"}
+	\label{fig:completo}
+	\caption{}
+\end{figure}\vspace*{0.2cm}
+		Para se calcular o número de arestas de um grafo completo, utiliza-se a fórmula:
+
+	\begin{center}
+			{\Large ${ \mathbf{\frac{n(n-1)}{2}}}$}\\
+			\vspace*{0.2cm}
+			$n$ = número de vértices do grafo 
+	\end{center}
+
+	\section{{\Large \underline{Grafos Regulares}}}
+		Um grafo regular é um grafo onde cada vértice tem o mesmo número de arestas adjacentes, ou seja, cada vértice tem o mesmo grau.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{0.26\textwidth}
+				\centering
+				\includegraphics[width = \textwidth]{"Figuras/regular1"}
+				\caption{Grafo regular de grau 4}
+				\label{fig:regular1esq}
+			\end{subfigure}
+			\quad
+			\quad
+			\begin{subfigure}{0.25\textwidth}
+				\centering
+				\includegraphics[width = \textwidth]{"Figuras/regular2"}
+				\caption{Grafo regular de grau 3}
+				\label{fig:regular2dir}
+			\end{subfigure}
+		\end{figure}
+
+	\section{{\Large \underline{Descrição do Programa}}}
+	
+	Inicialmente o arquivo onde se encontra a matriz de adjacência "A.txt" é aberto e a leitura de cada linha da matriz é realizada, com o objetivo de retirar os espaços ("$\backslash$n") e transformar o conteúdo em números inteiros (do tipo "int"). Após esse processo, o programa verifica e retira (se houver a presença) os espaços em branco desnecessários na matriz.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\linewidth]{"Figuras/Print1"}
+		\label{fig:print1}
+		\caption{}
+	\end{figure}\vspace*{0.3cm}
+	\newpage
+	Logo após a execução deste primeiro bloco de código, são criadas as variáveis "arestas"(a qual é igualada a zero) e uma lista com o nome "grau", que será responsável por armazenar a sequência dos graus do grafo em questão.Com isso, um laço de repetição é criado para percorrer toda a extensão da matriz(suas linhas e colunas) e caso o laço encontre um valor maior ou igual a 1 quando $i$ e $j$ da matriz $a_{ij}$ forem iguais então, o valor é dobrado(pois um laço conta como 2 graus no vértice) e adicionado a lista "grau".
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Figuras/Print2"}
+		\label{fig:print2}
+		\caption{}
+	\end{figure}\vspace*{0.3cm}
+	
+	Após o armazenamento da sequência gráfica, outro laço de repetição é criado, com o intuito de contar o número de arestas do grafo e imprimi-lo.
+
+
+	Para verificar se o grafo é completo ou não, utilizam-se duas novas variáveis também igualadas a zero, "aresta \textunderscore multipla" e "laco".A verificação é feita por meio da presença de arestas múltiplas e laços.Caso o grafo contenha arestas múltiplas ou laços ele deixa de ser um grafo simples, logo, não pode ser considerado completo.
+	
+	
+	No entanto, se o grafo for simples(não possuir arestas múltiplas nem laços) parte-se para outra condição:Os graus de cada vértice são analisados e comparados uns aos outros, caso os graus dos vértices forem iguais, conclui-se que o grafo é completo.Porém, se os graus dos vértices não forem iguais, então, o grafo não é considerado completo
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Figuras/Print3"}
+		\label{fig:print3}
+		\caption{}
+	\end{figure}\vspace*{0.3cm}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Figuras/Print4"}
+		\label{fig:print4}
+		\caption{}
+	\end{figure}\vspace*{0.3cm}
+
+	Um grafo é considerado regular quando todos os seus vértices possuem o mesmo grau.Para verificar tal condição utilizou-se um laço de repetição para percorrer a lista "grau".Nele, os graus são comparados uns com os outros e caso todos graus dos vértices forem iguais, o grafo é considerado regular. Do contrário, o grafo é considerado não regular.
+	
+	Por fim, a sequência dos graus do grafo é colocado em ordem decrescente por meio da função ".sort" e do argumento "reverse".
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Figuras/Print5"}
+		\label{fig:print5}
+		\caption{}
+	\end{figure}\vspace*{0.3cm}
+	\newpage
+	Após a execução completa de todos os blocos de código representados e descritos acima, as respostas à todas as questões propostas são impressas no terminal da seguinte maneira:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Figuras/Print6"}
+		\label{fig:print6}
+		\caption{}
+	\end{figure}\vspace*{0.3cm}
+	
+	
+\end{document}

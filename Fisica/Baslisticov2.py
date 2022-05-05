@@ -1,5 +1,4 @@
 from re import I
-from tkinter import Y
 import numpy as np
 import math
 
@@ -13,16 +12,16 @@ angRAd = np.deg2rad(Angulo)
 
 #1. Velocidades em T = 0:
 
-V0y = V0*(np.sin(angRAd))
-V0x = V0*(np.cos(angRAd))
+V0y = abs(V0*(np.sin(angRAd)))
+V0x = abs(V0*(np.cos(angRAd)))
 
 #2. Tempo em que o objeto permance no ar:
 
-z = (2*Y0)/g
-w = z/V0y
-n = w + 1
+z = -(2*Y0)
+w = z - V0y
+n = w / -g
 
-TempoAR = 2*(V0y / g)
+TempoAR = n
 
 #3. xMax
 

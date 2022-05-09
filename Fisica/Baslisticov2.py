@@ -16,12 +16,7 @@ V0y = abs(V0*(np.sin(angRAd)))
 V0x = abs(V0*(np.cos(angRAd)))
 
 #2. Tempo em que o objeto permance no ar:
-
-z = -(2*Y0)
-w = z - V0y
-n = w / -g
-
-TempoAR = n
+TempoAR = ((V0y + (math.sqrt((V0y**2)-(4*(-g/2)*Y0)))) / (2*(g/2)))
 
 #3. xMax
 
@@ -63,18 +58,23 @@ X = (V0x*Tempod)
 print("=============================================================")
 print("V0x: %.3f"% V0x)
 print("V0y: %.3f"% V0y)
+print("")
 print("TempoAR: %.3f"% TempoAR)
 print("xMax: %.3f"% xMax)
 print("hMax: %.3f"% hMax)
+print("")
 print("VxhMax: %.3f"% VxhMax)
 print("VyhMax: %.3f"% VyhMax)
 print("VthMax: %.3f"% VthMax)
+print("")
 print("VxxMax: %.3f"% VxxMax)
 print("VyxMax: %.3f"% VyxMax)
 print("VtxMax: %.3f"% VtxMax)
+print("")
 print("Vx: %.3f"% Vx)
 print("Vy: %.3f"% Vy)
 print("V: %.3f"% V)
+print("")
 print("X: %.3f"% X)
 print("Y: %.3f"% Y)
 print("=============================================================")

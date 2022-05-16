@@ -12,54 +12,46 @@ struct reg
   int conteudo;
   struct reg *prox;
 };
-no *ordena(no *lista, int max);
+
+void busca(no *lista, int chave);
 
 int main(void)
 {
+  int tam, num, chave;
   no *lista = inicializa();
+  printf("Digite a quantidade de itens a serem inseridos \n");
+  scanf("%d", &tam);
 
-  int max, i, num;
-
-  scanf("%d", &max);
-
-  for (i = 0; i < max; i++)
+  printf("Digite os valores \n");
+  for (int i = 0; i < tam; i++)
   {
     scanf("%d", &num);
     lista = insere_inicio(lista, num);
   }
-
-  lista = ordena(lista, max);
-  imprimir(lista);
-
-  return 0;
+  printf("Digite a chave de busca \n");
+  scanf("%d", &chave);
+  busca(lista, chave);
 }
 
-no *ordena(no *lista, int max)
+void busca(no *lista, int chave)
 {
-  int i;
-  no *atual = (no *)malloc(sizeof(no));
-  no *proximo = (no *)malloc(sizeof(no));
+  int count = 0;
+  int encontro = 0;
 
-  atual = lista;
-
-  for (i = 0; i < max; i++)
+  while (lista)
   {
-    proximo = atual->prox;
-    while (proximo!=NULL)
+    if (lista->conteudo == chave)
     {
-      int aux = 0;
-      if (atual->conteudo > proximo->conteudo)
-      {
-        aux = atual->conteudo;
-        atual->conteudo = proximo->conteudo;
-        proximo->conteudo = aux;
-      }
-      proximo = proximo->prox;
+      printf("Encontrado na posição %d", count);
+      encontro++;
     }
-    atual = atual->prox;
+    count++;
+    lista = lista->prox;
   }
-
-  return lista;
+  if (encontro == 0)
+  {
+    printf("Item não encontrado");
+  }
 }
 no *inicializa(void)
 {
@@ -76,6 +68,7 @@ no *insere_inicio(no *l, int i)
 
 void imprimir(no *lista)
 {
+  printf("\n Lista: ");
   while (lista)
   {
     printf("%d ", lista->conteudo);

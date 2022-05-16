@@ -1,4 +1,4 @@
-arq = open('C:\\Users\\Gquir\\OneDrive\\Documents - NOTEGUI\\Algoritmos\\Grafos\\Algoritmos\\Codigo_python\\A.txt', 'r')
+arq = open('A.txt', 'r')
 lista = arq.readlines()
 lista_final =[]
 arq.close()
